@@ -8,13 +8,13 @@ import gradio as gr
 import torch
 import numpy as np
 from torchvision import transforms
-from models.unet import UNet
+from model.unet import UNet
 from PIL import Image
 import matplotlib.pyplot as plt
 import io
 
 # Load model
-model_path = "checkpoints/unet_epoch10.pth"
+model_path = "model/unet_epoch20.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = UNet(in_channels=1, out_channels=3).to(device)
