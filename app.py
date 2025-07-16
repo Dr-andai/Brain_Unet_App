@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import io
 
 # Load model
+## using the 20th epoch
 model_path = "model/unet_epoch20.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -21,14 +22,14 @@ model = UNet(in_channels=1, out_channels=3).to(device)
 model.load_state_dict(torch.load(model_path, map_location=device))
 model.eval()
 
-# Preprocessing
+# Preprocessing step
 def preprocess_image(img):
     gray = img.convert("L").resize((128, 128))
     array = np.array(gray).astype(np.float32) / 255.0
     tensor = torch.from_numpy(array).unsqueeze(0).unsqueeze(0).to(device)
     return tensor
 
-# Prediction
+# Prediction step
 def segment(image):
     # Preprocess
     input_tensor = preprocess_image(image)

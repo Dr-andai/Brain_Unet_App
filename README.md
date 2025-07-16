@@ -11,3 +11,5 @@ short_description: MRI T1-Slice segmentation using UNet architecture
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+Find the model's repository at: https://github.com/Dr-andai/brain_unet.git
